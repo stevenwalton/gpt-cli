@@ -1,3 +1,4 @@
+from rich import print
 import os
 from typing import Iterator, List, Optional
 import anthropic
@@ -46,6 +47,7 @@ class AnthropicCompletionProvider(CompletionProvider):
 
         client = get_client()
         input_tokens = None
+        print(f"{kwargs}")
         try:
             if stream:
                 with client.messages.stream(**kwargs) as completion:

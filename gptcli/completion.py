@@ -51,6 +51,14 @@ CompletionEvent = Union[MessageDeltaEvent, UsageEvent]
 
 
 class CompletionProvider:
+    _args = ['temperature', 'top_p']
+    _verbose = False
+    def get_kwargs(self, args : dict) -> dict:
+        if "verbose" in args:
+            self._verbose = True
+        args = {k:args[k] for k in list(set(args.keys()) & set(self._args))}
+        return args
+
     @abstractmethod
     def complete(
         self, messages: List[Message], args: dict, stream: bool = False
