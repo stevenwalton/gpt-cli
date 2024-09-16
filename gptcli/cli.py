@@ -115,7 +115,7 @@ class CLIChatListener(ChatListener):
 
 def parse_args(input: str) -> Tuple[str, Dict[str, Any]]:
     # Pattern matches flags that start with -- or :, the flag name, a space or =
-    # deliminator, followed by an argument that begins with a letter and doesn't
+    # delimiter, followed by an argument that begins with a letter and doesn't
     # contain a space or = or a number
     pattern = r"(?:--|:)(\w[^\s=]*)(?:[ =])(\w[^\s=]*|\d+[.]\d*)"
     # Look for sequential flags that are space deliminated
